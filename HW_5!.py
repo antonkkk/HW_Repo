@@ -1,6 +1,6 @@
 # 1
 name = "www.my_site.com#about"
-print(name.replace("#","/"))
+print(name.replace("#", "/"))
 
 # 2
 word = "word"
@@ -45,6 +45,6 @@ print(l6)
 
 # 10
 l7 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
-l7.insert(2,"new_value")
+l7.insert(2, "new_value")
 del l7[6]
 print(l7)
