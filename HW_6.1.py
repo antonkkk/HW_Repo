@@ -1,15 +1,15 @@
-#1.
+# 1.
 n = 808
 h = n//60
-m = n%60
+m = n % 60
 h1 = h//10
-h2 = h%10
+h2 = h % 10
 m1 = m//10
-m2 = m%10
+m2 = m % 10
 sum_n = h1 + h2 + m1 + m2
 print(sum_n)
 
-#2.
+# 2.
 exp = 10
 t_hold = 15
 rew = 6
@@ -18,7 +18,7 @@ if exp + rew >= t_hold:
 else:
     print(False)
 
-#3.
+# 3.
 time_24 = "23:15"
 h, m = time_24.split(":")
 h = int(h)
