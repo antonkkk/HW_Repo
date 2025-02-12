@@ -20,9 +20,7 @@ else:
 
 # 3.
 time_24 = "23:15"
-h, m = time_24.split(":")
-h = int(h)
-m = int(m)
+h, m = map(int, time_24.split(":"))
 if h < 12:
     day = "a.m."
     if h == 0:
