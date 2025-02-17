@@ -29,9 +29,9 @@ while not correct:
 N = 10
 for i in range(N):
     for j in range(N - i - 1):
-        print(" ", end ="")
+        print(" ", end="")
     for k in range(i * 2 + 1):
-        print("*", end ="")
+        print("*", end="")
     print()
 
 # 3.
