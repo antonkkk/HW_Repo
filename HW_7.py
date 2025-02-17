@@ -39,7 +39,8 @@ list_a = [6, 2, 3, 8]
 list_b = []
 for i in range(2, 9):
     list_b.append(i)
-list_a = set(list_a)
-list_b = set(list_b)
-list_c = list_a.symmetric_difference(list_b)
+set_a = set(list_a)
+set_b = set(list_b)
+set_c = set_a.symmetric_difference(set_b)
+list_c = list(set_c)
 print(len(list_c))
