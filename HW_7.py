@@ -1,5 +1,11 @@
 # 1.
-number_computer = "1234"
+import random
+
+def generate_unique_numbers():
+    digits = random.sample('0123456789', 4)
+    return "".join(digits)
+
+number_computer = generate_unique_numbers()
 correct = False
 while not correct:
     number_player = input("Enter 4 digits value with unique numbers")
