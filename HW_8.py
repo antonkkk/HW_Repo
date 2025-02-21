@@ -11,13 +11,17 @@ def solution(sequence):
                 sequence[i] = sequence[i - 1]
     return True
 
+
 print(solution([1, 3, 2, 1]))
+
 
 # 2.
 def solution(n, f_number):
-    return (f_number + n//2)%10
+    return (f_number + n // 2) % 10
+
 
 print(solution(10, 2))
+
 
 # 3.
 def solution(number):
@@ -35,5 +39,6 @@ def solution(number):
         total_sum += digit
 
     return total_sum % 10 == 0
+
 
 print(solution(4561261212345467))
