@@ -1,5 +1,5 @@
 # 1.
-def solution(sequence):
+def sequence_increasing(sequence):
     counter = 0
     for i in range(1, len(sequence)):
         if sequence[i - 1] >= sequence[i]:
@@ -12,19 +12,19 @@ def solution(sequence):
     return True
 
 
-print(solution([1, 3, 2, 1]))
+print(sequence_increasing([1, 3, 2, 1]))
 
 
 # 2.
-def solution(n, f_number):
+def clock_value(n, f_number):
     return (f_number + n // 2) % 10
 
 
-print(solution(10, 2))
+print(clock_value(10, 2))
 
 
 # 3.
-def solution(number):
+def card_number(number):
     number = str(number)
     if not number.isdigit():
         return False
@@ -41,4 +41,4 @@ def solution(number):
     return total_sum % 10 == 0
 
 
-print(solution(4561261212345467))
+print(card_number(4561261212345467))
