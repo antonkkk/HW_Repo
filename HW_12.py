@@ -109,7 +109,7 @@ class Reader:
 
     def cancel_reserve(self, book_obj):
         if book_obj.cancel_reserve(self):
-            print(f"{self.name} successfully canceled the reservation of the book '{book_obj.book_name}'.")
+            print(f"{self.name} successfully canceled the reservation '{book_obj.book_name}'.")
         else:
             print(f"{self.name} can't cancel the reservation of the book '{book_obj.book_name}'.")
 
