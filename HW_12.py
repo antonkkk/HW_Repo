@@ -44,17 +44,18 @@ class Bank:
 
 
 # Example
-client_id = "0000001"
+client_id_outer = "0000001"
 
 bank = Bank()
-bank.register_client(client_id=client_id, name="Siarhei")
-bank.open_deposit_account(client_id=client_id, start_balance=1000, years=1)
+bank.register_client(client_id=client_id_outer, name="Siarhei")
+bank.open_deposit_account(client_id=client_id_outer, start_balance=1000, years=1)
 
 # Checking the calculation of the final amount
-assert bank.calc_deposit_interest_rate(client_id=client_id) == 1104.71, "Error in calculating the total deposit amount"
+assert bank.calc_deposit_interest_rate(client_id=client_id_outer) == 1104.71, \
+    "Error in calculating the total deposit amount"
 
 # Closing a deposit
-final_amount = bank.close_deposit(client_id=client_id)
+final_amount = bank.close_deposit(client_id=client_id_outer)
 print(f"Final deposit sum: {final_amount}")
 
 
@@ -65,39 +66,32 @@ class Book:
         self.author = author
         self.num_pages = num_pages
         self.isbn = isbn
-        self.is_reserved = False
-        self.reserved_by = None
-        self.is_borrowed = False
+        self.reservation = None
         self.borrowed_by = None
 
     def reserve(self, reader):
-        if self.is_reserved or self.is_borrowed:
+        if self.reservation is not None or self.borrowed_by is not None:
             return False
-        self.is_reserved = True
-        self.reserved_by = reader
+        self.reservation = {'reader': reader, 'is_reserved': True}
         return True
 
     def cancel_reserve(self, reader):
-        if self.is_reserved and self.reserved_by == reader:
-            self.is_reserved = False
-            self.reserved_by = None
+        if self.reservation and self.reservation['reader'] == reader:
+            self.reservation = None
             return True
         return False
 
     def get_book(self, reader):
-        if self.is_borrowed:
+        if self.borrowed_by is not None:
             return False
-        if self.is_reserved and self.reserved_by != reader:
+        if self.reservation and self.reservation['reader'] != reader:
             return False
-        self.is_borrowed = True
         self.borrowed_by = reader
-        self.is_reserved = False
-        self.reserved_by = None
+        self.reservation = None
         return True
 
     def return_book(self, reader):
-        if self.is_borrowed and self.borrowed_by == reader:
-            self.is_borrowed = False
+        if self.borrowed_by == reader:
             self.borrowed_by = None
             return True
         return False
@@ -107,29 +101,29 @@ class Reader:
     def __init__(self, name):
         self.name = name
 
-    def reserve_book(self, book):
-        if book.reserve(self):
-            print(f"{self.name} successfully reserved the book '{book.book_name}'.")
+    def reserve_book(self, book_obj):
+        if book_obj.reserve(self):
+            print(f"{self.name} successfully reserved the book '{book_obj.book_name}'.")
         else:
-            print(f"{self.name} can't reserve the book '{book.book_name}'.")
+            print(f"{self.name} can't reserve the book '{book_obj.book_name}'.")
 
-    def cancel_reserve(self, book):
-        if book.cancel_reserve(self):
-            print(f"{self.name} successfully canceled the reservation of the book '{book.book_name}'.")
+    def cancel_reserve(self, book_obj):
+        if book_obj.cancel_reserve(self):
+            print(f"{self.name} successfully canceled the reservation of the book '{book_obj.book_name}'.")
         else:
-            print(f"{self.name} can't cancel the reservation of the book '{book.book_name}'.")
+            print(f"{self.name} can't cancel the reservation of the book '{book_obj.book_name}'.")
 
-    def get_book(self, book):
-        if book.get_book(self):
-            print(f"{self.name} successfully borrowed the book '{book.book_name}'.")
+    def get_book(self, book_obj):
+        if book_obj.get_book(self):
+            print(f"{self.name} successfully borrowed the book '{book_obj.book_name}'.")
         else:
-            print(f"{self.name} can't borrow the book '{book.book_name}'.")
+            print(f"{self.name} can't borrow the book '{book_obj.book_name}'.")
 
-    def return_book(self, book):
-        if book.return_book(self):
-            print(f"{self.name} successfully returned the book '{book.book_name}'.")
+    def return_book(self, book_obj):
+        if book_obj.return_book(self):
+            print(f"{self.name} successfully returned the book '{book_obj.book_name}'.")
         else:
-            print(f"{self.name} can't return the book '{book.book_name}'.")
+            print(f"{self.name} can't return the book '{book_obj.book_name}'.")
 
 
 # Example
@@ -149,4 +143,3 @@ vasya.return_book(book)  # User can not return a book
 petya.return_book(book)
 
 vasya.get_book(book)
-
