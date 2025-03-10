@@ -1,5 +1,6 @@
 import random
 
+
 class Card:
     number_list = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
     mast_list = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
@@ -10,6 +11,7 @@ class Card:
 
     def __str__(self):
         return f"{self.mast} {self.number}"
+
 
 class CardsDeck:
     def __init__(self):
