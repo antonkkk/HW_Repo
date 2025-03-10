@@ -1,5 +1,3 @@
-from bank import Bank
-
 class CurrencyConverter:
     def __init__(self, rates):
         self.exchange_rates = rates

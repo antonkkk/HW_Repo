@@ -41,3 +41,4 @@ class Bank:
         final_balance = self.calc_deposit_interest_rate(client_id)
         self.deposits[client_id] = None
         return final_balance
+    
