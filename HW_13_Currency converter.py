@@ -1,4 +1,3 @@
-# 2.
 class Bank:
     def __init__(self):
         self.clients = {}
@@ -44,8 +43,8 @@ class Bank:
 
 
 class CurrencyConverter:
-    def __init__(self, exchange_rates):
-        self.exchange_rates = exchange_rates
+    def __init__(self, rates):
+        self.exchange_rates = rates
 
     def exchange_currency(self, from_currency, amount, to_currency='BYN'):
         if from_currency not in self.exchange_rates or to_currency not in self.exchange_rates:
@@ -61,7 +60,6 @@ class Person:
         self.amount = amount
 
 
-
 exchange_rates = {'USD': 3.269, 'EUR': 3.52, 'BYN': 1.0}
 converter = CurrencyConverter(exchange_rates)
 
@@ -75,3 +73,5 @@ print(converter.exchange_currency(petya.currency, petya.amount))  # (17.60, "BYN
 # Конвертация в заданную валюту:
 print(converter.exchange_currency(vasya.currency, vasya.amount, 'EUR'))  # (9.29, "EUR")
 print(converter.exchange_currency(petya.currency, petya.amount, 'USD'))  # (5.38, "USD")
+
+# Добавляем пустую строку в конце файла

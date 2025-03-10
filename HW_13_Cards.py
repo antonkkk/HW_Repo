@@ -1,4 +1,3 @@
-# 1.
 import random
 
 class Card:
@@ -35,12 +34,10 @@ class CardsDeck:
 deck = CardsDeck()
 deck.shuffle()
 
+card_number_1 = int(input('Выберите карту из колоды в 54 карт: '))
+card_1 = deck.get(card_number_1)
+print(f'Your card is: {card_1}')
 
-card_number = int(input('Выберите карту из колоды в 54 карт: '))
-card = deck.get(card_number)
-print(f'Your card is: {card}')
-
-
-card_number = int(input('Выберите карту из колоды в 54 карт: '))
-card = deck.get(card_number)
-print(f'Your card is: {card}')
+card_number_2 = int(input('Выберите карту из колоды в 54 карт: '))
+card_2 = deck.get(card_number_2)
+print(f'Your card is: {card_2}')
