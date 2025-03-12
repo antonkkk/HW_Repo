@@ -1,4 +1,4 @@
-#11. Datetime
+# 11. Datetime
 from datetime import datetime
 
 input_date = input("Введите дату (в формате ГГГГ-ММ-ДД): ")

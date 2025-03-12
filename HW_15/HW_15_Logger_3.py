@@ -1,5 +1,7 @@
 # 14. Logger
+# 14. Logger
 import logging
+
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -17,11 +19,13 @@ console_handler.setFormatter(logging.Formatter(log_format))
 logger.addHandler(file_handler)
 logger.addHandler(console_handler)
 
+
 def log_action(message, level='INFO'):
     if level == 'INFO':
         logger.info(message)
     elif level == 'ERROR':
         logger.error(message)
+
 
 def user_actions():
     while True:
@@ -46,6 +50,7 @@ def user_actions():
         else:
             log_action("Пользователь ввел неверную команду.", level='ERROR')
             print("Ошибка: Неверная команда.")
+
 
 if __name__ == "__main__":
     user_actions()

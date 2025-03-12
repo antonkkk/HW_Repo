@@ -1,6 +1,5 @@
 # 10. Datetime
 from dateutil import parser
-from dateutil.relativedelta import relativedelta
 
 date_str1 = input("Введите первую дату (в формате ГГГГ-ММ-ДД): ")
 date_str2 = input("Введите вторую дату (в формате ГГГГ-ММ-ДД): ")

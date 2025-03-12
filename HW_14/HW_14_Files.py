@@ -3,7 +3,6 @@ import os
 
 
 def create_file(filename):
-
     if not os.path.exists(filename):
         with open(filename, 'w', encoding='utf-8') as file:
             file.write("Name,Group,Grades\n")
@@ -14,7 +13,6 @@ def create_file(filename):
 
 
 def read_file(filename):
-
     try:
         with open(filename, 'r', encoding='utf-8') as file:
             lines = file.readlines()[1:]
@@ -37,7 +35,6 @@ def read_file(filename):
                 group_stats[group]['total_grades'] += sum(grades)
                 group_stats[group]['grades_count'] += len(grades)
 
-
             group_averages = {group: round(stats['total_grades'] / stats['grades_count'], 2)
                               for group, stats in group_stats.items()}
 
@@ -59,7 +56,6 @@ def read_file(filename):
 
 
 def append_statistics(filename, students_count, group_stats, group_averages):
-
     try:
         with open(filename, 'a', encoding='utf-8') as file:
             file.write(f"\nОбщее количество студентов: {students_count}\n")
