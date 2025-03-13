@@ -21,4 +21,3 @@ def is_valid_password(password: str) -> bool:
 if __name__ == "__main__":
     password = input("Введите пароль: ")
     print("Пароль валидный." if is_valid_password(password) else "Пароль не валидный.")
-    
