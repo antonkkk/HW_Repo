@@ -1,11 +1,21 @@
 # RE 3.
+import re
+
+
 def is_valid_password(password: str) -> bool:
-    return (
-        len(password) >= 4 and
-        any(c.isupper() for c in password) and
-        any(c.islower() for c in password) and
-        any(c.isdigit() for c in password)
-    )
+    if len(password) < 4:
+        return False
+
+    if not re.search(r'[A-Z]', password):
+        return False
+
+    if not re.search(r'[a-z]', password):
+        return False
+
+    if not re.search(r'\d', password):
+        return False
+
+    return True
 
 
 if __name__ == "__main__":

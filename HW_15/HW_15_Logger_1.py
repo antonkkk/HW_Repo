@@ -8,13 +8,6 @@ logging.basicConfig(
 )
 
 
-def log_action(message, level='INFO'):
-    if level == 'INFO':
-        logging.info(message)
-    elif level == 'ERROR':
-        logging.error(message)
-
-
 def user_actions():
     while True:
         print("\nВыберите действие:")
@@ -26,17 +19,17 @@ def user_actions():
 
         if action == "1":
             product = input("Введите название товара для добавления в корзину: ")
-            log_action(f"Пользователь добавил товар '{product}' в корзину.")
+            logging.info(f"Пользователь добавил товар '{product}' в корзину.")
             print(f"Товар '{product}' добавлен в корзину.")
         elif action == "2":
-            log_action("Пользователь оформил заказ.")
+            logging.info("Пользователь оформил заказ.")
             print("Заказ успешно оформлен.")
         elif action == "3":
-            log_action("Пользователь завершил работу с программой.")
+            logging.info("Пользователь завершил работу с программой.")
             print("Выход из программы...")
             break
         else:
-            log_action("Пользователь ввел неверную команду.", level='ERROR')
+            logging.error("Пользователь ввел неверную команду.")
             print("Ошибка: Неверная команда.")
 
 

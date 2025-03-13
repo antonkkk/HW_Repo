@@ -1,7 +1,5 @@
 # 14. Logger
-# 14. Logger
 import logging
-
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -20,13 +18,6 @@ logger.addHandler(file_handler)
 logger.addHandler(console_handler)
 
 
-def log_action(message, level='INFO'):
-    if level == 'INFO':
-        logger.info(message)
-    elif level == 'ERROR':
-        logger.error(message)
-
-
 def user_actions():
     while True:
         print("\nВыберите действие:")
@@ -38,17 +29,17 @@ def user_actions():
 
         if action == "1":
             product = input("Введите название товара для добавления в корзину: ")
-            log_action(f"Пользователь добавил товар '{product}' в корзину.")
+            logger.info(f"Пользователь добавил товар '{product}' в корзину.")
             print(f"Товар '{product}' добавлен в корзину.")
         elif action == "2":
-            log_action("Пользователь оформил заказ.")
+            logger.info("Пользователь оформил заказ.")
             print("Заказ успешно оформлен.")
         elif action == "3":
-            log_action("Пользователь завершил работу с программой.")
+            logger.info("Пользователь завершил работу с программой.")
             print("Выход из программы...")
             break
         else:
-            log_action("Пользователь ввел неверную команду.", level='ERROR')
+            logger.error("Пользователь ввел неверную команду.")
             print("Ошибка: Неверная команда.")
 
 
