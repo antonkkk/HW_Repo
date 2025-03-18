@@ -7,6 +7,7 @@ third_l_letter = text[-3]
 text_length = len(text)
 reversed_text = text[::-1]
 first_eight_letters = text[:8]
+
 print(first_letter)
 print(last_letter)
 print(third_letter)
