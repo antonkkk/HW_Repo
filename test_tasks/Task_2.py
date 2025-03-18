@@ -1,6 +1,6 @@
 # 2.
 def calculate_square():
-    user_input = float(input("Введите число!"))
+    user_input = float(input("Введите число"))
     value = user_input ** 2
     print(f"Квадрат числа {user_input} равен {value}")
 
