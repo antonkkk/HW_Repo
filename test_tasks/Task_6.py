@@ -8,7 +8,11 @@ def analyze_file(file_name):
         word_count = len(file_content.split())
         letter_count = len(file_content.replace(" ", "").replace("\n", ""))
 
-        analysis_result = f"\n\nКоличество строк: {line_count}\nКоличество слов: {word_count}\nКоличество букв: {letter_count}"
+        analysis_result = (
+            f"\n\nКоличество строк: {line_count}\n"
+            f"Количество слов: {word_count}\n"
+            f"Количество букв: {letter_count}"
+        )
 
         print(analysis_result)
 
@@ -19,6 +23,7 @@ def analyze_file(file_name):
         print(f"Ошибка: Файл '{file_name}' не найден.")
     except Exception as error:
         print(f"Произошла ошибка: {error}")
+
 
 file_name = "example.txt"
 analyze_file(file_name)

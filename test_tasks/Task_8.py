@@ -3,14 +3,17 @@ def print_board(board):
     for row in board:
         print(" ".join(row))
 
+
 def check_win(board, player):
     return (any(all(cell == player for cell in row) for row in board) or
             any(all(board[row][col] == player for row in range(5)) for col in range(5)) or
             all(board[i][i] == player for i in range(5)) or
             all(board[i][4 - i] == player for i in range(5)))
 
+
 def check_full(board):
     return all(cell != "." for row in board for cell in row)
+
 
 def play_game():
     board = [["." for _ in range(5)] for _ in range(5)]
@@ -37,5 +40,6 @@ def play_game():
             turn += 1
         else:
             print("Попробуйте снова.")
+
 
 play_game()

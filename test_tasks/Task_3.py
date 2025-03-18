@@ -5,5 +5,6 @@ def sum_n(n):
         total += i
     print(f"Сумма чисел от 1 до {n} равна {total}")
 
+
 number = int(input("Введите число: "))
 sum_n(number)

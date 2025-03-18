@@ -7,6 +7,7 @@ def build_string(input_str, count):
     second_part = first_part[:-1][::-1]
     return first_part + second_part
 
+
 s = "abcdefghijklmnopqrstuvwxyz"
 print(build_string(s, 1))  # "a"
 print(build_string(s, 2))  # "aba"
