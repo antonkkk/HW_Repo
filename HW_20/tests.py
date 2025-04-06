@@ -2,6 +2,7 @@ import unittest
 from bank import Bank
 from library import Book, Reader
 
+
 class BankTests(unittest.TestCase):
     def setUp(self):
         self.bank = Bank()
@@ -15,6 +16,7 @@ class BankTests(unittest.TestCase):
     def test_nonexistent_client(self):
         with self.assertRaises(ValueError):
             self.bank.open_deposit_account("002", 1000, 1)
+
 
 class BookTests(unittest.TestCase):
     def setUp(self):
@@ -33,6 +35,7 @@ class BookTests(unittest.TestCase):
         self.assertTrue(self.book.get_book(self.reader1))
         self.assertTrue(self.book.return_book(self.reader1))
 
+
 class ReaderTests(unittest.TestCase):
     def setUp(self):
         self.book = Book("Test Book", "Author", 100, "123")
@@ -42,6 +45,7 @@ class ReaderTests(unittest.TestCase):
         self.reader.reserve_book(self.book)
         self.reader.get_book(self.book)
         self.reader.return_book(self.book)
+
 
 if __name__ == '__main__':
     unittest.main()
