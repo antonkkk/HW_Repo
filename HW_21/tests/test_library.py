@@ -1,5 +1,5 @@
-import pytest
 from loguru import logger
+
 
 # Positive tests
 def test_successful_book_reservation(book, reader):
@@ -8,6 +8,7 @@ def test_successful_book_reservation(book, reader):
     assert book.reservation is not None
     assert book.reservation['reader'] == reader
 
+
 def test_successful_book_borrowing(book, reader):
     logger.info("Пробуем получить книгу после брони")
     book.reserve(reader)
@@ -15,11 +16,13 @@ def test_successful_book_borrowing(book, reader):
     assert book.borrowed_by == reader
     assert book.reservation is None
 
+
 def test_successful_book_return(book, reader):
     logger.info("Пробуем вернуть книгу")
     book.borrowed_by = reader
     assert book.return_book(reader) is True
     assert book.borrowed_by is None
+
 
 # Negative tests
 def test_reserve_already_borrowed_book(book, reader):
