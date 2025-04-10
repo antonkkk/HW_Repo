@@ -2,3 +2,6 @@
 report.html
 __pycache__/
 *.pyc
+assets/style.css
+report.html
+HW_21/tests/assets/style.css
