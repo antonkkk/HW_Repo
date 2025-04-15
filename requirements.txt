@@ -3,3 +3,5 @@ pycodestyle
 mypy
 ruff
 pylint
+pytest~=8.3.5
+loguru~=0.7.3
