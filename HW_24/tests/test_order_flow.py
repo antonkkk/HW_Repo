@@ -1,9 +1,9 @@
 import time
-import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
 
 def test_order_flow():
     browser = webdriver.Chrome()
@@ -38,7 +38,10 @@ def test_order_flow():
             EC.presence_of_element_located((By.CLASS_NAME, "checkout_info"))
         )
         assert checkout_info.is_displayed()
-        browser.execute_script("arguments[0].scrollIntoView();", browser.find_element(By.ID, "first-name"))
+        browser.execute_script(
+            "arguments[0].scrollIntoView();",
+            browser.find_element(By.ID, "first-name")
+        )
         browser.find_element(By.ID, "first-name").send_keys("John")
         browser.find_element(By.ID, "last-name").send_keys("Doe")
         browser.find_element(By.ID, "postal-code").send_keys("12345")
